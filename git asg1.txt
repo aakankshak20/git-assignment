@@ -1,0 +1,212 @@
+
+cc1@Riyadz MINGW64 ~ (master)
+$ mkdir project_dir
+
+cc1@Riyadz MINGW64 ~ (master)
+$ cd project_dir
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git init
+Initialized empty Git repository in C:/Users/cc1/project_dir/.git/
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ vc inde.html
+bash: vc: command not found
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git add index.html
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git commit -m "Fisrt commit"
+[master (root-commit) b112014] Fisrt commit
+ 1 file changed, 11 insertions(+)
+ create mode 100644 index.html
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        info.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ touch .gitignore
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git add .gitignore
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        info.txt
+
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git add .gitignore
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+        modified:   index.html
+
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git add index.html
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git commit -m "index file commited nad igonred text file"
+[master 168c864] index file commited nad igonred text file
+ 2 files changed, 1 insertion(+)
+ create mode 100644 .gitignore
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git log
+commit 168c8648e2530b7442777878a9a3b135535ac259 (HEAD -> master)
+Author: aakanksha <aakankshakale20@gmail.com>
+Date:   Sat Apr 10 12:43:14 2021 +0530
+
+    index file commited nad igonred text file
+
+commit b112014a0e2be4ba2d62a3eced51493d62a24ecf
+Author: aakanksha <aakankshakale20@gmail.com>
+Date:   Sat Apr 10 12:20:59 2021 +0530
+
+    Fisrt commit
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git revert HEAD
+error: Your local changes to the following files would be overwritten by merge:
+        .gitignore
+        index.html
+Please commit your changes or stash them before you merge.
+Aborting
+fatal: revert failed
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git restore index.html
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git add index.html
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git revert index.html
+fatal: bad revision 'index.html'
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git revert HEAD
+error: your local changes would be overwritten by revert.
+hint: commit your changes or stash them to proceed.
+fatal: revert failed
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git commit -m "index file "
+[master 29a865d] index file
+ 1 file changed, 1 insertion(+)
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git revert HEAD
+[master 1aa1e4c] Revert "index file"
+ 1 file changed, 1 deletion(-)
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git config --global alias.my-add add
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git my-add index.html
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git commit -m "using my-add command"
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git commit -m "using my-add command"
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
+$ git revert HEAD
+[master b16aa52] Revert "Revert "index file""
+ 1 file changed, 1 insertion(+)
+
+cc1@Riyadz MINGW64 ~/project_dir (master)
